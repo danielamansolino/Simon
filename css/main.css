@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: 'Comfortaa', cursive;
+    height: 100vh;
+    background-color:rgb(236, 245, 244) ;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.3fr 0.5fr 1fr 0.5fr;
+    grid-template-areas: 
+        "hdr"
+        "title"
+        "board"
+        "footer";
+}
+
+header  {
+    grid-area: "hdr";
+    margin-left: auto;
+    padding: 3vmin;
+    color:  rgb(101, 105, 105);
+    font-size: 25px;
+  }
+/* #hidden {
+    display: none;
+} */
+  h1 {
+    grid-area: "title";
+    text-align: center;
+    font-size: 80px;
+
+  }
+
+#board {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 20vmin);
+    grid-template-rows: repeat(2, 20vmin);
+    gap: 1.5vmin;
+    margin: 3vmin;
+}
+#board>div:hover {
+    transform: scale(0.9);
+    transition: transform 150ms ease-in;
+
+}
+/* .board.on {
+    opacity: 1;
+  }
+  
+  .board.off {
+    opacity: 0.5;
+  } */
+
+#purpleButton {
+    background-color: rgb(182, 142, 242);
+}
+#pinkButton {
+    background-color: rgb(250, 141, 227);
+}
+#turquoiseButton {
+    background-color: rgb(138, 248, 221);
+}
+#yellowButton {
+    background-color: rgb(247, 247, 150);
+}
+
+  footer {
+    display: flex; 
+    justify-content: space-around;
+    font-size: 4vmin;
+    color: rgb(101, 105, 105);
+  }
+button {
+    font-family: 'Comfortaa', cursive;
+    color: rgb(101, 105, 105);
+    background: none;
+    border: 0.1vmin solid rgb(101, 105, 105);
+    border-radius: 2vmin;
+    font-size: 4vmin;
+    padding: 1vmin;
+
+}button:hover {
+    color: white;
+    background-color: rgb(134, 141, 141);
+    transform: scale(0.9);
+    transition: transform 150ms ease-in;
+}

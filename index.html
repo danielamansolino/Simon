@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Simon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <script defer src="js/main.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav id="showInst">Instructions</nav>
+        <p id="hidden" style="display: none;">Welcome to Simon, press play to start.<br>Follow the sequence of the colors and sounds<br>for as long as you can! The game is over when you<br> don't complete a sequence succesfully.<br>You can Quit the game anytime by pressing quit.<br>To restart the game press Play Again.</p>
+
+    </header>
+
+    <h1>Simon</h1>
+
+    <section id="board">
+
+        <div class= 'button' id="purpleButton" data-color="purple"></div>
+        <div class= 'button' id="pinkButton" data-color="pink"></div>
+        <div class= 'button' id="turquoiseButton" data-color="turquoise"></div>
+        <div class= 'button' id="yellowButton" data-color="yellow"></div>
+        
+    </section>
+
+    <footer>
+        <button>Start</button>
+        <div id="score">Score: 0</div>
+    </footer>
+
+    <section id="Audios">
+
+        <audio src="https://freesound.org/people/Jaz_the_MAN_2/sounds/316898/" data-sound="purple" ></audio>
+        <audio src="https://freesound.org/people/Jaz_the_MAN_2/sounds/316908/" data-sound="pink" ></audio>
+        <audio src="https://freesound.org/people/Jaz_the_MAN_2/sounds/316906/" data-sound="turquoise" ></audio>
+        <audio src="https://freesound.org/people/Jaz_the_MAN_2/sounds/316904/" data-sound="yellow" ></audio>
+        <audio src="https://freesound.org/people/thisusernameis/sounds/426890/" data-sound="mistake" ></audio>
+    
+    </section>
+  
+</body>
+
+</html>

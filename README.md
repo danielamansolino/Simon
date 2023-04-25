@@ -19,17 +19,17 @@ Bonus user stories:
 - I want to display the instructions. 
 
 ## Think about the overall design (look & feel) of the app
-- clean/minimalists 
+- Clean/minimalists 
 - Pink, purple, turquoise, yellow colors for the buttons.
 - Font 
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
 ```
 
 ```css
-font-family: 'Neucha', cursive;
+font-family: 'Comfortaa', cursive;
 ```
 - 5 Audios (Do, Re, Mi, Fa, Mistake)
 1. Do
@@ -70,6 +70,8 @@ font-family: 'Neucha', cursive;
     2.1) Game sequence - color 
     2.2) Player sequence - empty array of the player color buttons selected.
     2.3) Score - empty array to keep track of the player's progress
+    2.4)Use the winner variable to represent the levels to win or a game over.
+    
     
 3) Cache DOM elements:
     3.1) Header
@@ -123,21 +125,21 @@ font-family: 'Neucha', cursive;
   
 - Game board - 1 array of 4 colors
 ```js
-let color
+const COLORS
 ```
 - Game sequence var - empty array to hold the color sequence of the game 
 ```js
-let sequence = [];
+let gameSequence = [];
 ```
 - Player sequence var - empty array to hold the color sequence of the player 
 ```js 
-let playersequence = [];
-```
-- Player progress var - empty array to keep track of the player's progress
-```js
-let playerProgress = [];
+let playerSequence = [];
 ```
 - Score var - empty array to keep track of the player's progress
+```js
+let score = [];
+```
+- Player progress var - empty array to keep track of the winner
 
 ```js
-let score =[];
+let winner =[];
