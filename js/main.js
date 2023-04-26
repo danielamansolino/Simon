@@ -14,11 +14,13 @@ let winner = [];
 /*----- cached elements  -----*/
 
 const messageEl = document.querySelector('h1');
-const boardEls = document.querySelectorAll('.button');
-const soundEls = document.querySelectorAll('.sound');
+// const boardEls = [...document.querySelectorAll('.board > div')];
+const boardEls = document.querySelector('.board');
+const soundEls = document.querySelector('.audios');
 const startBtn = document.querySelector('button');
-const scoreEl = document.getElementById('#score');
+const scoreEl = document.querySelector('#score');
 
+// console.log('this is', boardEls)
 /*----- event listeners -----*/
 document.getElementById('board').addEventListener('click', handleColorClick)
 // document.document.querySelectorAll('.button').addEventListener('click', handleColorClick)
@@ -29,102 +31,84 @@ startBtn.addEventListener('click', init)
 init ()
 
 function init () {
-    board= ['purple','pink', 'turquoise', 'yellow']
-    winner = score === 5
-    // render()
+    
+    score = 0;
+    winner = null
+    render()
 }
 
 function render () {
+    activateButton()
+    getRandomColor()
     playGameSequence()
+    handleColorClick()
+    renderScore()
+    getWinner()
+    startGame()
+    renderScore()   
 }
-// Generate a random color for the game sequence
 
+  function activateButton(color) {
+    const buttonEls = document.querySelector(`[data-button='${color}']`);
+    const sound = document.querySelector(`[data-sound='${color}']`);
+    setTimeout(() => {
+    buttonEls.classList.add('activated');
+    sound.play();
+    }, 500);
+    buttonEls.classList.remove('activated');
+}
+
+
+// Define a function to play the game sequence
 function getRandomColor() {
     return COLORS[Math.floor(Math.random() * COLORS.length)];
   }
-// console.log (' this is getRamdomColor', getRandomColor())
-// Define a function to add a new color to the game sequence
-function addColor() {
-    const newColor = getRandomColor();
-    gameSequence.push(newColor);
-  }
-getRandomColor()  
-addColor()
-console.log(gameSequence)
 
-// Define a function to play the game sequence
-
-// function playGameSequence() {
-// // for (let i = 0; i < gameSequence.length; i++) {
-//     // turn on the corresponding button light for the color
-//     const color = gameSequence[i];
-
-//     boardEls.classList.add('on')
-//     setTimeout(() => {
-//       boardEls.classList.remove('on');
-//       boardEls.classList.add('off');  
-//    setTimeout(() => {
-//         boardEls.classList.remove("off");
-//       }, 500);
-//     }, 500 * i);
-//   }
-// // }
 
 function playGameSequence() {
-    nextSequence.forEach((color, index) => {
+    // const nextSequence = [gameSequence, getRandomColor()];
+    // gameSequence.push(getRandomColor);
+    gameSequence.forEach((color,index) => {
+        activateButton(color,(index + 1) * 500);
+    });
+    playerSequence = [];
+    // setTimeout(() => {
+    //   }, 500 + 1000);
+    }
+  
+
+function handleColorClick(color) {
+    playerSequence.push(color);
+    const sound = document.querySelector(`[data-sound='${color}']`);
+    sound.play();
+    if(playerSequence === gameSequence) {
+        gameSequence.push(getRandomColor);
+        score += 1;
+        renderScore();
         setTimeout(() => {
-          activateTile(color);
-        }, (index + 1) * 600);
-      }); 
-}
-
-function activateButton(color) {
-    boardEls.classList.add('activated');
-    soundEls.play();
-  
-    setTimeout(() => {
-      soundEls.classList.remove('activated');
-    }, 500);
-  }
-
-  function nextRound() {
-    level += 1;
-  
-    const nextSequence = [...gameSequence];
-    nextSequence.push(addColor());
-    playGameSequence(nextSequence);
-  
-    gameSequence = [...nextSequence];
-    score * 600 + 1000;
-  }
-
-  function handleColorClick(event) {
-    const playerClick = playerSequence.push(newColor) - 1;
-    soundEls.play();
-  
-    const remainingTaps = gameSequence.length - playerSequence.length;
-  
-    if (playerSequence.length === sequence.length) {
-      playerSequence = [];
-      setTimeout(() => {
-        nextRound();
-      }, 1000);
-      return;
+            playGameSequence();
+          }, 1000);
+          return;
     }
   }
 
+function getWinner() {
+    //check for winner
+    //winner = score === 5;
+    winner = gameSequence === 5;
+    //winner message 
+    if (winner) {
+        messageEl.innerHTML = 'You win, yay!';
+    } else if (playerSequence !== gameSequence) {
+        messageEl.innerHTML = 'Game Over!';    
+    }
 
-
-// function handleColorClick (event) {
-//     const clickedColor = event.target.getAttribute('data-color');
-//     if (clickedColor === playGameSequence)
-
-
-// }
-
-// const showTextButton = document.getElementById('showInst');
-// const hiddenText = document.getElementById('hidden');
-
-// // showTextButton.addEventListener('click', function() {
-// //   hiddenText.style.display = 'hidden';
-// // });
+}
+ 
+function startGame() {
+    startBtn.innerHTML = `Quit`;
+    playGameSequence()
+}
+function renderScore() {
+    scoreEl.textContent = `Score: ${score}`;
+}

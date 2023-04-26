@@ -24,9 +24,9 @@ header  {
     color:  rgb(101, 105, 105);
     font-size: 25px;
   }
-/* #hidden {
+#hidden {
     display: none;
-} */
+}
   h1 {
     grid-area: "title";
     text-align: center;
@@ -45,28 +45,45 @@ header  {
 #board>div:hover {
     transform: scale(0.9);
     transition: transform 150ms ease-in;
-
 }
-/* .board.on {
-    opacity: 1;
+
+.unclickable {
+    pointer-events: none;
   }
-  
-  .board.off {
-    opacity: 0.5;
-  } */
 
 #purpleButton {
     background-color: rgb(182, 142, 242);
 }
+.purple:active,
+.purple.activated{
+    transform: scale(0.9);
+    transition: transform 150ms ease-in;
+} 
+
 #pinkButton {
     background-color: rgb(250, 141, 227);
 }
+.pink:active,
+.pink.activated{
+    transform: scale(0.9);
+    transition: transform 150ms ease-in;
+} 
 #turquoiseButton {
     background-color: rgb(138, 248, 221);
 }
+.turquoise:active,
+.turquoise.activated{
+    transform: scale(0.9);
+    transition: transform 150ms ease-in;
+} 
 #yellowButton {
     background-color: rgb(247, 247, 150);
 }
+.yellow:active,
+.yellow.activated{
+    transform: scale(0.9);
+    transition: transform 150ms ease-in;
+} 
 
   footer {
     display: flex; 
