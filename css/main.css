@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
 }
+
 body {
     margin: 0;
     font-family: 'Comfortaa', cursive;
@@ -24,9 +25,8 @@ header  {
     color:  rgb(101, 105, 105);
     font-size: 25px;
   }
-#hidden {
-    display: none;
-}
+
+
   h1 {
     grid-area: "title";
     text-align: center;
@@ -34,7 +34,7 @@ header  {
 
   }
 
-#board {
+.board {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(2, 20vmin);
@@ -42,16 +42,16 @@ header  {
     gap: 1.5vmin;
     margin: 3vmin;
 }
-#board>div:hover {
+/* #board>div:hover {
     transform: scale(0.9);
     transition: transform 150ms ease-in;
-}
+} */
 
-.unclickable {
+/* .board {
     pointer-events: none;
-  }
+  } */
 
-#purpleButton {
+.purple {
     background-color: rgb(182, 142, 242);
 }
 .purple:active,
@@ -60,7 +60,7 @@ header  {
     transition: transform 150ms ease-in;
 } 
 
-#pinkButton {
+.pink {
     background-color: rgb(250, 141, 227);
 }
 .pink:active,
@@ -68,7 +68,7 @@ header  {
     transform: scale(0.9);
     transition: transform 150ms ease-in;
 } 
-#turquoiseButton {
+.turquoise {
     background-color: rgb(138, 248, 221);
 }
 .turquoise:active,
@@ -76,7 +76,7 @@ header  {
     transform: scale(0.9);
     transition: transform 150ms ease-in;
 } 
-#yellowButton {
+.yellow {
     background-color: rgb(247, 247, 150);
 }
 .yellow:active,

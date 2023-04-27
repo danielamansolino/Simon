@@ -15,7 +15,7 @@
 <body>
 
     <header>
-        <nav id="showInst">Instructions</nav>
+        <button id="showInst">Instructions</button>
         <p id="hidden" style="display: none;">Welcome to Simon, press play to start.<br>Follow the sequence of the colors and sounds<br>for as long as you can! The game is over when you<br> don't complete a sequence succesfully.<br>You can Quit the game anytime by pressing quit.<br>To restart the game press Play Again.</p>
 
     </header>
@@ -24,15 +24,15 @@
 
     <section class="board" id="board">
 
-        <div id="purpleButton" class="purple" data-button="purple"></div>
-        <div id="pinkButton" class="pink" data-button="pink"></div>
-        <div id="turquoiseButton" class="turquoise" data-button="turquoise"></div>
-        <div id="yellowButton" class="yellow" data-button="yellow"></div>
-        
+        <div class="button purple" data-color="purple"></div>
+        <div class="button pink" data-color="pink"></div>
+        <div class="button turquoise" data-color="turquoise"></div>
+        <div class="button yellow" data-color="yellow"></div>
+     
     </section>
 
     <footer>
-        <button>Start</button>
+        <button id="startButton">Start</button>
         <div id="score">Score: 0</div>
     </footer>
 
@@ -42,7 +42,6 @@
         <audio src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" data-sound="pink"></audio>
         <audio src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" data-sound="turquoise"></audio>
         <audio src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" data-sound="yellow"></audio>
-        
     
     </section>
   
