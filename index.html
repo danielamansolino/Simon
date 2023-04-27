@@ -16,13 +16,13 @@
 
     <header>
         <button id="showInst">Instructions</button>
-        <p id="hidden" style="display: none;">Welcome to Simon, press play to start.<br>Follow the sequence of the colors and sounds<br>for as long as you can! The game is over when you<br> don't complete a sequence succesfully.<br>You can Quit the game anytime by pressing quit.<br>To restart the game press Play Again.</p>
+        <p id="hidden" style="display: none;">Welcome to Simon, press play to start.<br>Follow the sequence of the colors and sounds<br>for as long as you can! The game is over when you<br> don't complete a sequence succesfully.<br>To restart the game press Play Again.</p>
 
     </header>
 
     <h1>Simon</h1>
 
-    <section class="board" id="board">
+    <section class="board unclickable" id="board">
 
         <div class="button purple" data-color="purple"></div>
         <div class="button pink" data-color="pink"></div>
@@ -34,6 +34,8 @@
     <footer>
         <button id="startButton">Start</button>
         <div id="score">Score: 0</div>
+        <button id="playAgain">Play Again</button>
+      
     </footer>
 
     <section class="audios" id="audios">

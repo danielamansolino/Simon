@@ -24,15 +24,17 @@ header  {
     padding: 3vmin;
     color:  rgb(101, 105, 105);
     font-size: 25px;
-  }
+}
 
+#showInst {
+    border-style: none;
+}
 
-  h1 {
+h1 {
     grid-area: "title";
     text-align: center;
     font-size: 80px;
-
-  }
+}
 
 .board {
     display: grid;
@@ -40,23 +42,14 @@ header  {
     grid-template-columns: repeat(2, 20vmin);
     grid-template-rows: repeat(2, 20vmin);
     gap: 1.5vmin;
-    margin: 3vmin;
-    
-    
+    margin: 3vmin;  
 }
-/* #board>div:hover {
-    transform: scale(0.9);
-    transition: transform 150ms ease-in;
-} */
-
-/* .board {
-    pointer-events: none;
-  } */
 
 .purple {
     background-color: rgb(182, 142, 242);
     border-style: solid;
 }
+
 .purple:active,
 .purple.activated{
     transform: scale(0.9);
@@ -67,24 +60,29 @@ header  {
     background-color: rgb(250, 141, 227);
     border-style: solid;
 }
+
 .pink:active,
 .pink.activated{
     transform: scale(0.9);
     transition: transform 150ms ease-in;
 } 
+
 .turquoise {
     background-color: rgb(138, 248, 221);
     border-style: solid;
 }
+
 .turquoise:active,
 .turquoise.activated{
     transform: scale(0.9);
     transition: transform 150ms ease-in;
 } 
+
 .yellow {
     background-color: rgb(247, 247, 150);
     border-style: solid;
 }
+
 .yellow:active,
 .yellow.activated{
     transform: scale(0.9);
@@ -96,7 +94,8 @@ header  {
     justify-content: space-around;
     font-size: 4vmin;
     color: rgb(101, 105, 105);
-  }
+}
+
 button {
     font-family: 'Comfortaa', cursive;
     color: rgb(101, 105, 105);
@@ -106,9 +105,15 @@ button {
     font-size: 4vmin;
     padding: 1vmin;
 
-}button:hover {
+}
+
+button:hover {
     color: white;
     background-color: rgb(134, 141, 141);
     transform: scale(0.9);
     transition: transform 150ms ease-in;
+}
+
+#score {
+    padding-top: 1vmin;
 }

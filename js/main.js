@@ -1,64 +1,54 @@
 /*----- constants -----*/
+
 // This is a constant for the game board
 const COLORS = ['purple','pink', 'turquoise', 'yellow'];
+const mistakeSound = ['https://freesound.org/data/previews/42/42106_70164-lq.mp3']
 
 /*----- state variables -----*/
 
 let gameSequence = [];
 let playerSequence = [];
-// let playerProgress =[];
-// let start = false;
 let score = 0;
 let winner = 0;
 
 /*----- cached elements  -----*/
 
 const messageEl = document.querySelector('h1');
-// const boardEls = [...document.querySelectorAll('.board > div')];
 const boardEls = document.querySelector('.board');
 const soundEls = document.querySelector('.audios');
 const startBtn = document.querySelector('#startButton');
-console.log('this is startBtn', startBtn)
 const scoreEl = document.querySelector('#score');
 
-// console.log('this is', boardEls)
 /*----- event listeners -----*/
+
 const allButtons = document.querySelectorAll('.button')
 allButtons.forEach(button => {
     button.addEventListener('click', handleColorClick)
 })
-// document.document.querySelectorAll('.button').addEventListener('click', handleColorClick)
-startBtn.addEventListener('click', init)
+startBtn.addEventListener('click', init) 
+playAgain.addEventListener('click', function() {
+    window.location.reload();    
+})
 
 /*----- functions -----*/
 
-// init ()
-
 function init () {
-    console.log('init has run')
     score = 0;
     winner = null
     playerSequence = [];
-    render()
+    render()     
 }
 
 function render () {
     console.log('render has run')
-    getWinner()
     startGame()
-    renderScore()
-    showInstructions()   
+    showInstructions() 
 }
 
-
-
-// Activate the hover effects and the sounds on the board for the sequences
+// Activate the hover effects and sounds on the buttons for the gameSequences
 function activateButton(color,delay) {
-    // console.log('activateButton run')
     const colorEls= document.querySelector(`[data-color='${color}']`);
-    // console.log('this is buttonEls',buttonEls)
     const sound = document.querySelector(`[data-sound='${color}']`);
-    // console.log('this is sound',sound)
     setTimeout(() => {   
         colorEls.classList.add('activated');
         sound.play();
@@ -68,54 +58,25 @@ function activateButton(color,delay) {
     },delay);
 }
 
-
-
-// Generate colors to the gameSequence array 
+// Generates a randon color for the 
 function getRandomColor() {
-    return COLORS[Math.floor(Math.random() * COLORS.length)];
-    
+    let randomColor =  COLORS[Math.floor(Math.random() * COLORS.length)];
+    if (gameSequence[gameSequence.length -1] === randomColor) {
+        randomColor = getRandomColor();
+    }
+    return randomColor;
 }
+
 // Define a function to play the gameSequence
-// I need a delay
 function playGameSequence() {
     gameSequence.push(getRandomColor());
     gameSequence.forEach((color,index) => {
         console.log('playGame sequence has run')
         activateButton(color,(index + 1) * 500);
     });
-   
     console.log ('this is gameSequence',gameSequence )
-
-    // const actvColor = document.querySelectorAll('.button' + gameSequence);
-    // console.log('this is activeColor', actvColor)
-    // actvColor.forEach(color => {
-    //     color.classList.add('activated');
-    // setTimeout(() => {
-    //     color.classList.remove('activated');
-    // }, 500 );
-    // });
-
-    // for (let i = 0; i < gameSequence.length; i++) {
-    //     const hoverColor = document.querySelectorAll('.button' + gameSequence[i]);
-    //     Array.from(hoverColor).forEach(color => {
-    //       color.classList.add('activated');
-    //       setTimeout(() => {
-    //         color.classList.remove('activated');
-    //       }, 500);
-    //     });
-    //   }
-
 }
-
-// Plays the next game sequence
-// function nextSequence() {
-//     const gameNextSeq = [...gameSequence];
-//     gameNextSeq.push(getRandomColor());
-//     // playGameSequence(gameNextSeq);
-//     gameSequence = [...gameNextSeq];
-//     console.log('this is gameNextSeq',gameNextSeq)
-// }
-  
+ 
 // Responsable for the user interaction 
 function handleColorClick(event) {
     const pickedColor = event.target.dataset.color;
@@ -126,84 +87,57 @@ function handleColorClick(event) {
     sound.play();
     // if(playerSequence === gameSequence) {
     if(playerSequence.toString() === gameSequence.toString()) {
-    // if(gameSequence.length === playerSequence.length) {
+    // if(arraysMatch(gameSequence,playerSequence)) {
         score += 1;
+        scoreEl.textContent = `Score: ${score}`;
         playerSequence = [];
-        renderScore();
         setTimeout(() => {
             playGameSequence();
-          }, 1000);
-          return;
-    // do a forEach loop to compare the arrays      
-    // } else if (playerSequence.toString() !== gameSequence.toString()) {
-    //     messageEl.innerHTML = 'Game Over!';
-    //     startBtn.innerHTML = 'Play Again';
-    //     winner = -1;
-    //     score = 0;
-    }
-  }
+          }, 500 + 1000);
+         return;
+        } 
+   getWinner()
+    // else mistake audio
+}
 
+// Compare 2 arrays length and the items inside
 function arraysMatch(arr1, arr2) {
     if (arr1.length !== arr2.length) {
       return false;
     }
-    for (var i = 0; i < arr1.length; i++) {
+    for (let i = 0; i < arr1.length; i++) {
       if (arr1[i] !== arr2[i]) {
         return false;
+      } else {
+        return true;
       }
     }
-    return true;
   } 
-// function sequenceMatch( ) {
-//     if (gameSequence.length !== playerSequence.length) {
-//       return false;
-//     }
-//     for (var i = 0; i < gameSequence.length; i++) {
-//       if (gameSequence[i] !== playerSequence[i]) {
-//         return false;
-//       }
-//     }
-//     return true;
-//   }
-
 
 // Define winner or game over.
 function getWinner() {
-    if (score === 5) {
+    if (gameSequence.length === 3) {
         messageEl.innerHTML = 'You win, yay!';
-        startBtn.innerHTML = 'Play Again';
-        winner = 1;
-     // } else if (score > 0 && playerSequence !== playGameSequence) {
-    // } else if (playerSequence !== playGameSequence) {    
-    // } else if (arraysMatch(gameSequence,playerSequence)) {
-    } else if (playerSequence.toString() !== gameSequence.toString()) {
+        winner = 1; 
+    } else if (arraysMatch(gameSequence,playerSequence)) {
         messageEl.innerHTML = 'Game Over!';
-        startBtn.innerHTML = 'Play Again';
         winner = -1;
         score = 0;
+        scoreEl.textContent = `Score: ${score}`
     } 
 }
 
-
-
-// Render star button to 'Quit'  
+// Start the playGameSequence 
 function startGame() {
-    startBtn.innerHTML = `Quit`;
     playGameSequence()
 }
 
-function renderScore() {
-    scoreEl.textContent = `Score: ${score}`;
-}
-
-function showInstructions() {
-    //display the instructions in the DOM
+// Display the instructions in the DOM
+function showInstructions() { 
     const instructionBtn = document.getElementById('showInst');
-    const instructionsText = document.getElementById('hidden')
-
+    const instructionsText = document.getElementById('hidden');
     instructionBtn.addEventListener('click', () => {
         instructionsText.style.display = 'block';
-
     }
     );
 }
