@@ -50,39 +50,31 @@ function render () {
     showInstructions()   
 }
 
-//const allButtons = document.querySelectorAll('.button')
-// allButtons.forEach(button => {
-//     button.addEventListener('click', handleColorClick)
 
 
 // Activate the hover effects and the sounds on the board for the sequences
-function activateButton(color) {
+function activateButton(color,delay) {
     // console.log('activateButton run')
-    // const colorEls= document.querySelector(`[data-color='${color}']`);
-    // const colorEls = document.querySelectorAll('.button')
+    const colorEls= document.querySelector(`[data-color='${color}']`);
     // console.log('this is buttonEls',buttonEls)
-    // const sound = document.querySelector(`[data-sound='${color}']`);
-    // const sound = document.querySelectorAll('.audios')
+    const sound = document.querySelector(`[data-sound='${color}']`);
     // console.log('this is sound',sound)
-    // // // const sound2 = document.querySelector(dataset.sound=`${color}`)
-    // // // console.log('this is sound2',sound2)
-    // // // const sound =[...document.querySelectorAll(`[data-sound='${color}']`)]
-    // // // console.log('this is sound',sound)
-    // setTimeout(() => {   
-    //     colorEls.classList.add('activated');
-    //     sound.play();
-    // setTimeout(() => {
-    //     colorEls.classList.remove('activated');
-    // }, 500);
-    // });
+    setTimeout(() => {   
+        colorEls.classList.add('activated');
+        sound.play();
+    setTimeout(() => {
+        colorEls.classList.remove('activated');
+    }, 500);
+    },delay);
 }
+
 
 
 // Generate colors to the gameSequence array 
 function getRandomColor() {
     return COLORS[Math.floor(Math.random() * COLORS.length)];
     
-  }
+}
 // Define a function to play the gameSequence
 // I need a delay
 function playGameSequence() {
@@ -93,9 +85,27 @@ function playGameSequence() {
     });
    
     console.log ('this is gameSequence',gameSequence )
+
+    // const actvColor = document.querySelectorAll('.button' + gameSequence);
+    // console.log('this is activeColor', actvColor)
+    // actvColor.forEach(color => {
+    //     color.classList.add('activated');
     // setTimeout(() => {
-    //   }, 500 + 1000);
-    }
+    //     color.classList.remove('activated');
+    // }, 500 );
+    // });
+
+    // for (let i = 0; i < gameSequence.length; i++) {
+    //     const hoverColor = document.querySelectorAll('.button' + gameSequence[i]);
+    //     Array.from(hoverColor).forEach(color => {
+    //       color.classList.add('activated');
+    //       setTimeout(() => {
+    //         color.classList.remove('activated');
+    //       }, 500);
+    //     });
+    //   }
+
+}
 
 // Plays the next game sequence
 // function nextSequence() {
@@ -112,8 +122,8 @@ function handleColorClick(event) {
     console.log('this is the playerBtn', pickedColor)
     playerSequence.push(pickedColor);
     console.log('this is the playerSequence', playerSequence)
-    // const sound = document.querySelector(`[data-sound='${event}']`);
-    // sound.play();
+    const sound = document.querySelector(`[data-sound='${pickedColor}']`);
+    sound.play();
     // if(playerSequence === gameSequence) {
     if(playerSequence.toString() === gameSequence.toString()) {
     // if(gameSequence.length === playerSequence.length) {

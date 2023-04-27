@@ -41,6 +41,8 @@ header  {
     grid-template-rows: repeat(2, 20vmin);
     gap: 1.5vmin;
     margin: 3vmin;
+    
+    
 }
 /* #board>div:hover {
     transform: scale(0.9);
@@ -53,6 +55,7 @@ header  {
 
 .purple {
     background-color: rgb(182, 142, 242);
+    border-style: solid;
 }
 .purple:active,
 .purple.activated{
@@ -62,6 +65,7 @@ header  {
 
 .pink {
     background-color: rgb(250, 141, 227);
+    border-style: solid;
 }
 .pink:active,
 .pink.activated{
@@ -70,6 +74,7 @@ header  {
 } 
 .turquoise {
     background-color: rgb(138, 248, 221);
+    border-style: solid;
 }
 .turquoise:active,
 .turquoise.activated{
@@ -78,6 +83,7 @@ header  {
 } 
 .yellow {
     background-color: rgb(247, 247, 150);
+    border-style: solid;
 }
 .yellow:active,
 .yellow.activated{
