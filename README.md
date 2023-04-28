@@ -20,7 +20,7 @@ Simon is a memory game in which the computer generates a sequence of sounds and 
 ## Getting Started
 [Click to Play Simon!](https://danielamansolino.github.io/Simon/)
 
-Welcome to Simon, press play to start. Follow the sequence of the colors and sounds. In this version of the game you become a winner by following the sequences five times succesfully! The game is over when you don't complete a sequence successfully.To restart the game press Play Again.
+Welcome to Simon, press play to start. Follow the sequence of the colors and sounds. In this version of the game you become a winner by following the sequences five times succesfully!. You can keep playing after you win to get a higher score. The game is over when you don't complete a sequence successfully.To restart the game press Play Again.
 
 ## Planned Future Enhancements
 - I would like to add an audio to play when the game is over.

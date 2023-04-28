@@ -36,6 +36,7 @@ function init () {
     playerSequence = [];
     render()     
 }
+
 // render function transfers/visualizes all state
 function render () {
     startGame()
@@ -107,9 +108,7 @@ function arraysMatch(arr1, arr2) {
 
 // Define winner or game over.
 function getWinner() {
-    winner = playerSequence.length === 5;
-    console.log('this is winner', winner)
-    console.log('this is gameSequence length', gameSequence.length)
+    winner = playerSequence.length === 4;
     if (winner) {
         messageEl.innerHTML = 'You win, yay!';
         winner = true;
