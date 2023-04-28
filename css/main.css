@@ -89,7 +89,7 @@ h1 {
     transition: transform 150ms ease-in;
 } 
 
-  footer {
+footer {
     display: flex; 
     justify-content: space-around;
     font-size: 4vmin;

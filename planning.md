@@ -58,7 +58,7 @@ font-family: 'Comfortaa', cursive;
 - Start screen wireframe
 ![Start Screen](images/start-screen.jpg)
 - Game in progress-quit wireframe
-![Play Again](images/quit.jpg)
+![Quit](images/quit.jpg)
 - Game over-play again wireframe
 ![Play Again](images/game-over.jpg)
 
