@@ -8,7 +8,7 @@ const COLORS = ['purple','pink', 'turquoise', 'yellow'];
 let gameSequence = [];
 let playerSequence = [];
 let score = 0;
-let winner = 0;
+let winner = null;
 
 /*----- cached elements  -----*/
 
@@ -29,13 +29,14 @@ playAgain.addEventListener('click', function() {
 
 /*----- functions -----*/
 
+//Set up our initial state, calls the render function
 function init () {
     score = 0;
-    winner = 0;
+    winner = null;
     playerSequence = [];
     render()     
 }
-
+// render function transfers/visualizes all state
 function render () {
     startGame()
     showInstructions() 
@@ -106,15 +107,19 @@ function arraysMatch(arr1, arr2) {
 
 // Define winner or game over.
 function getWinner() {
-    if (gameSequence.length === 4) {
+    winner = playerSequence.length === 5;
+    console.log('this is winner', winner)
+    console.log('this is gameSequence length', gameSequence.length)
+    if (winner) {
         messageEl.innerHTML = 'You win, yay!';
-        winner = 1;
+        winner = true;
     } else if (arraysMatch(gameSequence,playerSequence)) {
         messageEl.innerHTML = 'Game Over!';
-        winner = -1;
+        winner = false;
         score = 0;
         scoreEl.textContent = `Score: ${score}`;
     } 
+    return;
 }
 
 // Start the playGameSequence 
