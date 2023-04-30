@@ -34,6 +34,7 @@ function init () {
     score = 0;
     winner = null;
     playerSequence = [];
+    gameSequence = [];
     render()     
 }
 
@@ -69,7 +70,7 @@ function getRandomColor() {
 function playGameSequence() {
     gameSequence.push(getRandomColor());
     gameSequence.forEach((color,index) => {
-        activateButton(color,(index + 1) * 500);
+        activateButton(color,(index + 1) * 1000);
     });
 }
  
@@ -108,7 +109,7 @@ function arraysMatch(arr1, arr2) {
 
 // Define winner or game over.
 function getWinner() {
-    winner = playerSequence.length === 4;
+    winner = playerSequence.length === 10;
     if (winner) {
         messageEl.innerHTML = 'You win, yay!';
         winner = true;
