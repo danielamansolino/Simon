@@ -53,7 +53,7 @@ function activateButton(color,delay) {
         sound.play();
     setTimeout(() => {
         colorEls.classList.remove('activated');
-    }, 500);
+    }, 250);
     }, delay);
 }
 
@@ -70,7 +70,7 @@ function getRandomColor() {
 function playGameSequence() {
     gameSequence.push(getRandomColor());
     gameSequence.forEach((color,index) => {
-        activateButton(color,(index + 1) * 1000);
+        activateButton(color,(index + 1) * 500);
     });
 }
  
@@ -86,7 +86,7 @@ function handleColorClick(event) {
         playerSequence = [];
         setTimeout(() => {
             playGameSequence();
-        }, 500 + 1000);
+        }, score * 500 + 1000);
          return;  
     } 
     getWinner(); 
