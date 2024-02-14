@@ -25,3 +25,4 @@ Welcome to Simon, press play to start. Follow the sequence of the colors and sou
 ## Planned Future Enhancements
 - I would like to add an audio to play when the game is over.
 - I would like to generate a high score board.
+- I would like to impruve the mobile view.
