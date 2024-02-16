@@ -14,33 +14,28 @@
     <script defer src="js/main.js"></script>
     
 </head>
-
 <body>
-
     <header>
-
         <button id="showInst">Instructions</button>
-        <p id="hidden" style="display: none;">Welcome to Simon, press play to start.<br>Follow the sequence of the colors and sounds.<br>In this version of the game you become a winner<br>by following the sequences five times successfully!<br>Keep playing after you win to get a higher score.<br>The game is over when you don't complete<br> a sequence succesfully.<br>To restart the game press Play Again.</p>
-
+        <!-- <p id="hidden" style="display: none;">Welcome to Simon, press play to start.<br>Follow the sequence of the colors and sounds.<br>In this version of the game you become a winner<br>by following the sequences five times successfully!<br>Keep playing after you win to get a higher score.<br>The game is over when you don't complete<br> a sequence succesfully.<br>To restart the game press Play Again.</p> -->
     </header>
-
+    <div id="instructionPopup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <p>Welcome to Simon, press play to start.<br>Follow the sequence of the colors and sounds.<br>In this version of the game you become a winner<br>by following the sequences five times successfully!<br>Keep playing after you win to get a higher score.<br>The game is over when you don't complete<br> a sequence successfully.<br>To restart the game press Play Again.</p>
+        </div>
+    </div>
     <h1>Simon</h1>
-
     <section class="board unclickable" id="board">
-
         <div class="button purple" data-color="purple"></div>
         <div class="button pink" data-color="pink"></div>
         <div class="button turquoise" data-color="turquoise"></div>
-        <div class="button yellow" data-color="yellow"></div>
-     
+        <div class="button yellow" data-color="yellow"></div>  
     </section>
-
     <footer>
-
         <button id="startButton">Start</button>
         <div id="score">Score: 0</div>
         <button id="playAgain">Play Again</button>
-      
     </footer>
 
     <section class="audios" id="audios">
