@@ -22,7 +22,7 @@ header  {
     grid-area: "hdr";
     margin-left: auto;
     padding: 3vmin;
-    color:  rgb(101, 105, 105);
+    color: rgb(101, 105, 105);
     font-size: 25px;
 }
 
@@ -44,11 +44,16 @@ header  {
 
 .popup-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 20px;
-    border: 1px solid #888;
+    border: 10px solid rgb(144, 240, 229);
     width: 70%; /* Could be more or less, depending on screen size */
+    max-width: 400px; /* Limit maximum width */
 }
+
 
 /* Close button */
 .close {
